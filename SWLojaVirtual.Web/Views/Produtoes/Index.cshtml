@@ -4,9 +4,8 @@
     ViewBag.Title = "Página Inicial";
 }
 
-<h2>Index</h2>
-
 <p>
+    <button class="btn btn-primary" type="button">Novo Produto</button>
     @Html.ActionLink("Novo Produto", "Create")
 </p>
 <table class="table">
@@ -15,7 +14,7 @@
             @Html.DisplayNameFor(model => model.Nome)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Preco)
+            @Html.DisplayName("Preço")
         </th>
         <th></th>
     </tr>
