@@ -4,7 +4,6 @@
     ViewBag.Title = "Detalhes";
 }
 
-<h2>Detalhe do Produto</h2>
 
 <div>
     <h4>Produto</h4>
@@ -28,6 +27,15 @@
 
     </dl>
 </div>
+
+        @using (Html.BeginForm("Adicionar", "CarrinhoController"))
+        {
+            <div class="pull-right">
+                @Html.HiddenFor(x => x.IdProduto)
+                @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
+                <input type="submit" class="btn btn-success" value="Comprar" />
+            </div>
+        }
 <p>
     @Html.ActionLink("Editar", "Edit", new { id = Model.IdProduto }) |
     @Html.ActionLink("Voltar", "Index")

@@ -119,10 +119,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CarrinhoController.cs" />
     <Compile Include="Controllers\ProdutoesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CarrinhoViewModel.cs" />
+    <Compile Include="Models\ProdutosViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -136,6 +139,7 @@
     <Content Include="Views\Produtoes\Details.cshtml" />
     <Content Include="Views\Produtoes\Edit.cshtml" />
     <Content Include="Views\Produtoes\Index.cshtml" />
+    <Content Include="Views\Carrinho\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -145,7 +149,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SWLojaVirtual.Dominio\SWLojaVirtual.Dominio.csproj">
