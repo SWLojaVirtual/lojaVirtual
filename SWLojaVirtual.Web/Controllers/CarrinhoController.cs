@@ -61,5 +61,17 @@ namespace SWLojaVirtual.Web.Controllers
                 ReturnUrl = returnurl
             });
         }
+
+        public PartialViewResult Resumo()
+        {
+            Carrinho carrinho = ObterCarrinho();
+            return PartialView(carrinho);
+        }
+
+
+        public ViewResult FecharPedido()
+        {
+            return View();
+        }
     }
 }

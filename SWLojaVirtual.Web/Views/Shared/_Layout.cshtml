@@ -19,10 +19,8 @@
                 </button>
                 @Html.ActionLink("SW Loja Virtual", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                </ul>
-            </div>
+
+            @Html.Action("Resumo", "Carrinho")
         </div>
     </div>
 
