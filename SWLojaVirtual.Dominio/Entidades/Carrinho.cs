@@ -11,6 +11,7 @@ namespace SWLojaVirtual.Dominio.Entidades
         public void AdicionarItem(Produto produto, int quantidade)
         {
             ItemCarrinho item = _itemCarrinho.FirstOrDefault(p => p.Produto.IdProduto == produto.IdProduto);
+            
 
             if(item == null)
             {

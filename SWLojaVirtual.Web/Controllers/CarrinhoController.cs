@@ -22,8 +22,10 @@ namespace SWLojaVirtual.Web.Controllers
 
             Produto produto = _repositorioProdutos.Produtos.FirstOrDefault(p => p.IdProduto == IdProduto);
 
+            //int bonusPromocao = produto.Promocao.Leve - produto.Promocao.Pague;
+
             if (produto != null)
-                ObterCarrinho().AdicionarItem(produto, 1);
+                ObterCarrinho().AdicionarItem(produto, 1);//modificar para receber qtde de maneira dinâmica
 
             return RedirectToAction("Index", new {returnUrl});
         }
