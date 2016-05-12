@@ -2,6 +2,7 @@
 
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SWLojaVirtual.Dominio.Entidades
 {
@@ -17,7 +18,9 @@ namespace SWLojaVirtual.Dominio.Entidades
 
         public int quantidade { get; set; }
 
+        [DisplayName("Promoção")]
         public int IdPromocao { get; set; }
+        [ForeignKey("IdPromocao")]
         public virtual Promocao Promocao { get; set; }
     }
 }

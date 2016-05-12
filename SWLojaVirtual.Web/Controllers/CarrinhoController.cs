@@ -8,7 +8,7 @@ namespace SWLojaVirtual.Web.Controllers
 {      
     public class CarrinhoController : Controller
     {
-        private ProdutosRepositorio _repositorio;
+        private ProdutosRepositorio _repositorioProdutos;
 
         /// <summary>
         /// Adicionar produto ao carrinho
@@ -18,15 +18,14 @@ namespace SWLojaVirtual.Web.Controllers
         /// <returns></returns>
         public RedirectToRouteResult Adicionar(int IdProduto, string returnUrl)
         {
-            _repositorio = new ProdutosRepositorio();
+            _repositorioProdutos = new ProdutosRepositorio();
 
-            Produto produto = _repositorio.Produtos.FirstOrDefault(p => p.IdProduto == IdProduto);
+            Produto produto = _repositorioProdutos.Produtos.FirstOrDefault(p => p.IdProduto == IdProduto);
 
             if (produto != null)
                 ObterCarrinho().AdicionarItem(produto, 1);
 
             return RedirectToAction("Index", new {returnUrl});
-
         }
 
         /// <summary>
@@ -54,9 +53,9 @@ namespace SWLojaVirtual.Web.Controllers
         /// <returns></returns>
         public RedirectToRouteResult Remover(int IdProduto, string returnUrl)
         {            
-            _repositorio = new ProdutosRepositorio();
+            _repositorioProdutos = new ProdutosRepositorio();
 
-            Produto produto = _repositorio.Produtos.FirstOrDefault(p => p.IdProduto == IdProduto);
+            Produto produto = _repositorioProdutos.Produtos.FirstOrDefault(p => p.IdProduto == IdProduto);
 
             if (produto != null)
             {

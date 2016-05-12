@@ -122,6 +122,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CarrinhoController.cs" />
     <Compile Include="Controllers\ProdutoesController.cs" />
+    <Compile Include="Controllers\PromocaosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -137,6 +138,11 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Carrinho\Index.cshtml" />
     <Content Include="Views\Carrinho\Resumo.cshtml" />
+    <Content Include="Views\Promocaos\Create.cshtml" />
+    <Content Include="Views\Promocaos\Delete.cshtml" />
+    <Content Include="Views\Promocaos\Details.cshtml" />
+    <Content Include="Views\Promocaos\Edit.cshtml" />
+    <Content Include="Views\Promocaos\Index.cshtml" />
     <Content Include="Views\Produtoes\Create.cshtml" />
     <Content Include="Views\Produtoes\Delete.cshtml" />
     <Content Include="Views\Produtoes\Details.cshtml" />

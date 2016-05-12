@@ -7,6 +7,7 @@
 
 <p>
     <a class="btn btn-primary" href="Produtoes/Create">Novo Produto</a>
+    <a class="btn btn-primary" href="Promocaos/Create">Nova Promoção</a>
 </p>
 
 <table class="table">
@@ -16,6 +17,9 @@
         </th>
         <th>
             @Html.DisplayName("Preço")
+        </th>
+        <th>
+            @Html.DisplayName("Promoção")
         </th>
         <th></th>
     </tr>
@@ -27,6 +31,9 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Preco)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Promocao.Descricao)
         </td>
         <td>
             @Html.ActionLink("Editar", "Edit", new { id=item.IdProduto }, new { @class = "btn btn-primary" }) 

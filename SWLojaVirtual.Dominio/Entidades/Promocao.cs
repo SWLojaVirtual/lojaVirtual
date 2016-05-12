@@ -12,6 +12,7 @@ namespace SWLojaVirtual.Dominio.Entidades
         [Key]
         public int IdPromocao { get; set; }
         public string Descricao { get; set; }
-        public int Bonus { get; set; }
+        public int Leve { get; set; }
+        public int Pague { get; set; }
     }
 }

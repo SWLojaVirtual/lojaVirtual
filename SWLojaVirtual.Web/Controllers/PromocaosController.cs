@@ -11,112 +11,107 @@ using SWLojaVirtual.Dominio.Repositório;
 
 namespace SWLojaVirtual.Web.Controllers
 {
-    public class ProdutoesController : Controller
+    public class PromocaosController : Controller
     {
         private DBContext db = new DBContext();
 
-        // GET: Produtoes
+        // GET: Promocaos
         public ActionResult Index()
         {
-            var produtos = db.Produtos.Include(p => p.Promocao);
-            return View(produtos.ToList());
+            return View(db.Promocoes.ToList());
         }
 
-        // GET: Produtoes/Details/5
+        // GET: Promocaos/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Produto produto = db.Produtos.Find(id);
-            if (produto == null)
+            Promocao promocao = db.Promocoes.Find(id);
+            if (promocao == null)
             {
                 return HttpNotFound();
             }
-            return View(produto);
+            return View(promocao);
         }
 
-        // GET: Produtoes/Create
+        // GET: Promocaos/Create
         public ActionResult Create()
         {
-            ViewBag.IdPromocao = new SelectList(db.Promocoes, "IdPromocao", "Descricao");
             return View();
         }
 
-        // POST: Produtoes/Create
+        // POST: Promocaos/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "IdProduto,Nome,Preco,quantidade,IdPromocao")] Produto produto)
+        public ActionResult Create([Bind(Include = "IdPromocao,Descricao,Leve, Pague")] Promocao promocao)
         {
             if (ModelState.IsValid)
             {
-                db.Produtos.Add(produto);
+                db.Promocoes.Add(promocao);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.IdPromocao = new SelectList(db.Promocoes, "IdPromocao", "Descricao", produto.IdPromocao);
-            return View(produto);
+            return View(promocao);
         }
 
-        // GET: Produtoes/Edit/5
+        // GET: Promocaos/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Produto produto = db.Produtos.Find(id);
-            if (produto == null)
+            Promocao promocao = db.Promocoes.Find(id);
+            if (promocao == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.IdPromocao = new SelectList(db.Promocoes, "IdPromocao", "Descricao", produto.IdPromocao);
-            return View(produto);
+            return View(promocao);
         }
 
-        // POST: Produtoes/Edit/5
+        // POST: Promocaos/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "IdProduto,Nome,Preco,quantidade,IdPromocao")] Produto produto)
+        public ActionResult Edit([Bind(Include = "IdPromocao,Descricao,Leve, Pague")] Promocao promocao)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(produto).State = EntityState.Modified;
+                db.Entry(promocao).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.IdPromocao = new SelectList(db.Promocoes, "IdPromocao", "Descricao", produto.IdPromocao);
-            return View(produto);
+            return View(promocao);
         }
 
-        // GET: Produtoes/Delete/5
+        // GET: Promocaos/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Produto produto = db.Produtos.Find(id);
-            if (produto == null)
+            Promocao promocao = db.Promocoes.Find(id);
+            if (promocao == null)
             {
                 return HttpNotFound();
             }
-            return View(produto);
+            return View(promocao);
         }
 
-        // POST: Produtoes/Delete/5
+        // POST: Promocaos/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Produto produto = db.Produtos.Find(id);
-            db.Produtos.Remove(produto);
+            Promocao promocao = db.Promocoes.Find(id);
+            db.Promocoes.Remove(promocao);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

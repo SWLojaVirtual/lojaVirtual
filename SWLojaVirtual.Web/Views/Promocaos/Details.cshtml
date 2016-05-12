@@ -1,0 +1,42 @@
+﻿@model SWLojaVirtual.Dominio.Entidades.Promocao
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Promocao</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descricao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Leve)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Leve)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pague)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pague)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdPromocao }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
