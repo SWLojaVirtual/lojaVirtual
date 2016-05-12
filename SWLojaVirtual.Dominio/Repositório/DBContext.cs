@@ -6,5 +6,6 @@ namespace SWLojaVirtual.Dominio.Repositório
     public class DBContext : DbContext
     {
         public DbSet<Produto> Produtos { get; set; }
+        public DbSet<Promocao> Promocoes { get; set; }
     }
 }

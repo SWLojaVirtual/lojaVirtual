@@ -14,5 +14,10 @@ namespace SWLojaVirtual.Dominio.Entidades
         [DisplayName("Preço")]
         [DataType(DataType.Currency)]
         public decimal Preco { get; set; }
+
+        public int quantidade { get; set; }
+
+        public int IdPromocao { get; set; }
+        public virtual Promocao Promocao { get; set; }
     }
 }

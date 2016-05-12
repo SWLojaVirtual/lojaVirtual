@@ -28,7 +28,7 @@
     </dl>
 </div>
 
-        @using (Html.BeginForm("Adicionar", "CarrinhoController"))
+        @using (Html.BeginForm("Adicionar", "Carrinho"))
         {
             <div class="pull-right">
                 @Html.HiddenFor(x => x.IdProduto)
@@ -36,6 +36,8 @@
                 <input type="submit" class="btn btn-success" value="Comprar" />
             </div>
         }
+<br />
+<br />
 <p>
     @Html.ActionLink("Editar", "Edit", new { id = Model.IdProduto }, new { @class = "btn btn-primary" }) |
     @Html.ActionLink("Voltar", "Index")

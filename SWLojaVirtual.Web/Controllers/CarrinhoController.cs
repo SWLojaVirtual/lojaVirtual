@@ -10,21 +10,29 @@ namespace SWLojaVirtual.Web.Controllers
     {
         private ProdutosRepositorio _repositorio;
 
-        public RedirectToRouteResult Adicionar(int produtoId, string returnUrl)
+        /// <summary>
+        /// Adicionar produto ao carrinho
+        /// </summary>
+        /// <param name="IdProduto"></param>
+        /// <param name="returnUrl"></param>
+        /// <returns></returns>
+        public RedirectToRouteResult Adicionar(int IdProduto, string returnUrl)
         {
             _repositorio = new ProdutosRepositorio();
 
-            Produto produto = _repositorio.Produtos.FirstOrDefault(p => p.IdProduto == produtoId);
+            Produto produto = _repositorio.Produtos.FirstOrDefault(p => p.IdProduto == IdProduto);
 
             if (produto != null)
-            {
                 ObterCarrinho().AdicionarItem(produto, 1);
-            }
 
             return RedirectToAction("Index", new {returnUrl});
 
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         private Carrinho ObterCarrinho()
         {
             Carrinho carrinho = (Carrinho) Session["Carrinho"];
@@ -38,12 +46,17 @@ namespace SWLojaVirtual.Web.Controllers
             return carrinho;
         }
 
-
-        public RedirectToRouteResult Remover(int produtoId, string returnUrl)
+        /// <summary>
+        /// Remover produto do carrinho
+        /// </summary>
+        /// <param name="IdProduto"></param>
+        /// <param name="returnUrl"></param>
+        /// <returns></returns>
+        public RedirectToRouteResult Remover(int IdProduto, string returnUrl)
         {            
             _repositorio = new ProdutosRepositorio();
 
-            Produto produto = _repositorio.Produtos.FirstOrDefault(p => p.IdProduto == produtoId);
+            Produto produto = _repositorio.Produtos.FirstOrDefault(p => p.IdProduto == IdProduto);
 
             if (produto != null)
             {
@@ -52,7 +65,12 @@ namespace SWLojaVirtual.Web.Controllers
 
             return RedirectToAction("Index", new {returnUrl});
         }
-
+        
+        /// <summary>
+        /// Página onde são listados os produtos adicionados ao carrinho
+        /// </summary>
+        /// <param name="returnurl"></param>
+        /// <returns></returns>
         public ViewResult Index(string returnurl)
         {
             return View(new CarrinhoViewModel
@@ -62,13 +80,20 @@ namespace SWLojaVirtual.Web.Controllers
             });
         }
 
+        /// <summary>
+        /// Resumo do Carrinho
+        /// </summary>
+        /// <returns></returns>
         public PartialViewResult Resumo()
         {
             Carrinho carrinho = ObterCarrinho();
             return PartialView(carrinho);
         }
 
-
+        /// <summary>
+        /// Fechar Pedido
+        /// </summary>
+        /// <returns></returns>
         public ViewResult FecharPedido()
         {
             return View();
